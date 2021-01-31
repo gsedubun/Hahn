@@ -1,6 +1,5 @@
 import { NPM } from 'aurelia-cli';
 import * as kill from 'tree-kill';
-import { platform } from '../aurelia.json';
 
 const npm =  new NPM();
 
@@ -13,9 +12,7 @@ function run() {
 // Cleanup --env prod to --env.production
 // for backwards compatibility
 function cleanArgs(args) {
-  let host;
   const cleaned = [];
-
   for (let i = 0, ii = args.length; i < ii; i++) {
     if (args[i] === '--env' && i < ii - 1) {
       const env = args[++i].toLowerCase();
@@ -24,24 +21,17 @@ function cleanArgs(args) {
       } else if (env.startsWith('test')) {
         cleaned.push('--tests');
       }
-    } else if (args[i] === '--host' && i < ii -1) {
-      host = args[++i];
     } else {
       cleaned.push(args[i]);
     }
   }
-
-  // Deal with --host before webpack-dev-server calls webpack config.
-  // Because of https://discourse.aurelia.io/t/changing-platform-host-in-aurelia-json-doesnt-change-the-host-ip/3043/10?u=huochunpeng
-  if (!host) host = platform.host;
-  if (host) cleaned.push('--host', host);
   return cleaned;
 }
 
-const shutdownDevServer = () => {
+const shutdownAppServer = () => {
   if (npm && npm.proc) {
     kill(npm.proc.pid);
   }
 };
 
-export { run as default, shutdownDevServer };
+export { run as default, shutdownAppServer };

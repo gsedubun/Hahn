@@ -1,0 +1,18 @@
+<template>
+
+    <div class="col-md-6">
+    <div class="card border-primary">
+        <div class="card-body">
+            <li repeat.for="applicant of api.data">
+                <a href="/applicant/${applicant.id}">
+                    <span>${applicant.name} (${applicant.emailAddress})</span>
+                </a>
+            </li>
+
+            <!-- <span if.bind="!isEmpty">No data.</span> -->
+
+        </div>
+    </div>
+</div>
+
+</template>

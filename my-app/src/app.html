@@ -1,21 +1,11 @@
 <template>
-  <div class="row">
+   <div class="col-md-12">
 
-  <require from="index.css"></require>
-  <require from="./applicant-list"></require>
-  <!-- <require from="../node_modules/bootstrap/dist/css/bootstrap.min.css"></require> -->
-<div class="col-md-12 jumbotron">
-  <h2>${message}</h1>
+    <!-- <au-viewport></au-viewport> -->
+    <router-view></router-view>
+   </div>
 
-</div>
-<div class="col-md-6">
-  <applicant-list></applicant-list>
-</div>
-<div class="col-md-6">
-  <au-viewport ></au-viewport>
+    <main class="container">
 
-</div>
-
-</div>
-
+  </main>
 </template>

@@ -19,8 +19,6 @@ Thumbs.db
 # Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 # Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
 .idea
-.chrome
-/*.log
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -32,6 +30,8 @@ node_modules
 
 # Compiled files
 /scripts
+/src/environment.js
 /src/environment.ts
 /dist
 /test/coverage-jest
+/test/coverage-karma

@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "bootstrap-typescript-skeleton",
   "type": "project:application",
   "paths": {
     "root": "src",
@@ -26,5 +26,6 @@
     "port": 8080,
     "host": "localhost",
     "output": "dist"
-  }
+  },
+  "packageManager": "yarn"
 }

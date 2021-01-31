@@ -1,9 +1,17 @@
-import {Aurelia} from 'aurelia-framework';
+import {Aurelia} from 'aurelia-framework'
 import * as environment from '../config/environment.json';
 import {PLATFORM} from 'aurelia-pal';
 
+// import jQuery as a global dependency
+import 'jquery';
 
-export function configure(aurelia: Aurelia): void {
+// import boostrap js as a global dependency
+import 'bootstrap/dist/js/bootstrap.bundle';
+
+// import bootstap css as a global dependency
+import 'bootstrap/dist/css/bootstrap.css';
+
+export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
     .feature(PLATFORM.moduleName('resources/index'));

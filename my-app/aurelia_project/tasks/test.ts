@@ -1,4 +1,4 @@
-import { runCLI } from '@jest/core';
+import * as jest from 'jest-cli';
 import * as path from 'path';
 import * as packageJson from '../../package.json';
 
@@ -11,7 +11,8 @@ export default (cb) => {
     Object.assign(options, { watchAll: true});
   }
 
-  runCLI(options, [path.resolve(__dirname, '../../')]).then(({ results }) => {
+
+  jest.runCLI(options, [path.resolve(__dirname, '../../')]).then(({ results }) => {
     if (results.numFailedTests || results.numFailedTestSuites) {
       cb('Tests Failed');
     } else {
