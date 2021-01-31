@@ -2,6 +2,8 @@
 using Hahn.ApplicatonProcess.December2020.Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Hahn.ApplicatonProcess.December2020.Domain.BusinessLogics
 {
@@ -12,7 +14,26 @@ namespace Hahn.ApplicatonProcess.December2020.Domain.BusinessLogics
         {
             this.Context = contextFactory;
         }
+        public IEnumerable<Applicant> Get(){
+            using (var DbContext = Context.CreateDbContext())
+            {
 
+                var applicant = DbContext.ApplicantDatas.Select(applicant=>
+                 new Applicant()
+                    {
+                        Address = applicant.Address,
+                        Age = applicant.Age,
+                        CountryOfOrigin = applicant.CountryOfOrigin,
+                        EmailAddress = applicant.EmailAddress,
+                        FamilyName = applicant.FamilyName,
+                        Hired = applicant.Hired,
+                        Name = applicant.Name, 
+                        ID=applicant.ID
+                    }
+                ).ToList();
+                return applicant;
+            }
+        }
         public Applicant Get(int applicantId)
         {
             using (var DbContext = Context.CreateDbContext())

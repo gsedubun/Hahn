@@ -61,7 +61,20 @@ namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
             }
             return BadRequest(applicant);
         }
-
+        [HttpGet("GetAll")]
+        public IActionResult Get()
+        {
+            try
+            {
+                var model = applicantService.Get();
+                return Ok(model);
+            }
+            catch (System.Exception ex)
+            {
+                Logger.Error(ex.Message, ex);
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         [HttpGet]
         public IActionResult Get(int id)

@@ -1,14 +1,21 @@
 <template>
-  <h1>${message}</h1>
+  <div class="row">
 
-  <form submit.trigger="addApplicant()">
-    <div class="form-group">
-      <label >Name</label>
-      <input type="text" value.bind="applicant.name" class="form-control"/>
-    </div>
-    <div class="btn-group">
-      <button type="submit" disabled.bind="!formIsValid">Submit</button>
-      <button type="reset" >Reset</button>
-      </div>
-  </form>
+  <require from="index.css"></require>
+  <require from="./applicant-list"></require>
+  <!-- <require from="../node_modules/bootstrap/dist/css/bootstrap.min.css"></require> -->
+<div class="col-md-12 jumbotron">
+  <h2>${message}</h1>
+
+</div>
+<div class="col-md-6">
+  <applicant-list></applicant-list>
+</div>
+<div class="col-md-6">
+  <au-viewport ></au-viewport>
+
+</div>
+
+</div>
+
 </template>
