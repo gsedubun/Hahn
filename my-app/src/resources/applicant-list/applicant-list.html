@@ -3,6 +3,7 @@
     <div class="col-md-6">
     <div class="card border-primary">
         <div class="card-body">
+            <a href="/applicant/create" class="btn btn-primary">Create</a>
             <li repeat.for="applicant of api.data">
                 <a href="/applicant/${applicant.id}">
                     <span>${applicant.name} (${applicant.emailAddress})</span>
