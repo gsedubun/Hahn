@@ -1,5 +1,5 @@
 import { HttpClient, HttpResponseMessage, responseTypeTransformer } from "aurelia-http-client";
-import { ValidationRules } from "aurelia-validation";
+import {RenderInstruction, ValidationRules } from "aurelia-validation";
 
 
 export class ApplicantService{
@@ -68,15 +68,30 @@ export class AppConfig {
     static create(obj: any){
       return new Applicant(obj.id, obj.name, obj.familyName, obj.address, obj.countryOfOrigin, obj.emailAddress, obj.age, obj.hired);
     }
-    static getRules() : any{
-return 
-ValidationRules
-.ensure('name').required().minLength(5)
-.ensure('familyName').required().minLength(5)
-.ensure('address').required().minLength(10)
-.ensure('countryOfOrigin').required().satisfies(d=> ApplicantService.GetCountry(d.value))
-.ensure('emailAddress').required()
-.ensure('age').required().min(20).max(60).on(Applicant);
+//     static getRules() : any{
+// return 
+// ValidationRules
+// .ensure('name').required().minLength(5)
+// .ensure('familyName').required().minLength(5)
+// .ensure('address').required().minLength(10)
+// .ensure('countryOfOrigin').required().satisfies(d=> ApplicantService.GetCountry(d.value))
+// .ensure('emailAddress').required()
+// .ensure('age').required().min(20).max(60).on(Applicant);
 
+//     }
+  }
+  
+
+
+export class SimpleValidationRenderer {
+
+  public render(instruction: RenderInstruction) {
+    for (let { elements} of instruction.unrender) {
+      elements.forEach(target => target.parentElement.querySelector(".error").textContent = "");
+    }
+
+    for (let {result, elements} of instruction.render) {
+      elements.forEach(target => target.parentElement.querySelector(".error").textContent = result.message);
     }
   }
+}
