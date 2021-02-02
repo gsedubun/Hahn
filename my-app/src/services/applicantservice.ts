@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponseMessage } from "aurelia-http-client";
+import { HttpClient, HttpResponseMessage, responseTypeTransformer } from "aurelia-http-client";
 
 
 export class ApplicantService{
@@ -7,6 +7,11 @@ export class ApplicantService{
             this.http = new HttpClient();
          this.GetApplicants();
     }
+    Get(id){
+      return this.http.get(AppConfig.baseurl+'/applicant/'+id)
+        .then((resp)=> resp);
+    }
+
     async Create(data: Applicant)  {
        return this.http.post(AppConfig.baseurl+'/applicant', data)
             .then((resp)=> resp);

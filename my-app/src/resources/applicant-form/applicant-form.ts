@@ -9,8 +9,7 @@ export class ApplicantForm {
     formIsValid: boolean = true;
   constructor(private api: ApplicantService, private router: Router, private isNew: boolean){
      if(!isNew){
-       router.
-       api.Get()
+       
      }
   }
     addApplicant(){

@@ -5,6 +5,7 @@ const moduleIds = {
   'helloWorld': PLATFORM.moduleName('resources/hello-world/hello-world'),
   'about' : PLATFORM.moduleName('resources/about/about'),
   'form': PLATFORM.moduleName('resources/applicant-form/applicant-form'),
+  'detail': PLATFORM.moduleName('resources/detail/detail'),
   'home': PLATFORM.moduleName('resources/home/home'),
 }
 
@@ -18,7 +19,7 @@ export class App {
     config.map([
       { route: ['','hello'], moduleId: moduleIds.home, title: 'Home' },
       { route: 'about', moduleId: moduleIds.about, title: 'About' },
-      { route: 'applicant/:id', moduleId: moduleIds.form, title: 'Detail' }
+      { route: 'applicant/:id', moduleId: moduleIds.detail, title: 'Detail' }
     ]);
 
     this.router = router;
