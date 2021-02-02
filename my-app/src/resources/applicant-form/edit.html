@@ -1,6 +1,6 @@
 <template>
+
     <div class="col-md-6">
-    
         <div class="card border-secondary">
         <div class="card-header">
             <h3>Edit Applicant</h3>
@@ -9,40 +9,39 @@
               <form role="form"  >
                 <div class="form-group">
                   <label >Name</label>
-                  <input type="text" value.bind="applicant.name" class="form-control"/>
+                  <input type="text" value.bind="name & validate" class="form-control"/>
                 </div>
                 <div class="form-group">
                   <label >Family Name</label>
-                  <input type="text" value.bind="applicant.familyName" class="form-control"/>
+                  <input type="text" value.bind="familyName & validate" class="form-control"/>
                 </div>
                 <div class="form-group">
                   <label >Address</label>
-                  <input type="text" value.bind="applicant.address" class="form-control"/>
-                  <!-- <input type="text" value.bind="applicant.familyName" class="form-control"/> -->
+                  <input type="text" value.bind="address & validate" class="form-control"/>
                 </div>
                 <div class="form-group">
                   <label >Email </label>
-                  <input type="email" value.bind="applicant.emailAddress" class="form-control"/>
+                  <input type="text" value.bind="emailAddress & validate" class="form-control"/>
                 </div>
                 <div class="form-group">
                   <label >Country Of Origin </label>
-                  <input type="text" value.bind="applicant.countryOfOrigin" class="form-control"/>
+                  <input type="text" value.bind="countryOfOrigin & validate" class="form-control"/>
                 </div>
                 <div class="form-group">
                   <label >Age </label>
-                  <input type="number" value.bind="applicant.age" class="form-control"/>
+                  <input type="text" value.bind="age & validate" class="form-control"/>
                 </div>
                 <div class="form-group">
                   <label >Hired</label>
-                  <input type="checkbox" checked.bind="applicant.hired" />
+                  <input type="checkbox" checked.bind="hired" />
                 </div>
                 <div class="btn-group">
-                  <!-- <button type="submit" disabled.bind="!formIsValid" class="btn btn-primary">Submit</button>
-                  <button type="reset" class="btn btn-light">Reset</button> -->
-                    <a href="/applicant/${applicant.id}" class="btn btn-light">Back</a>
+                    <a href="/applicant/${id}" class="btn btn-light">Back</a>
                     <button  class="btn btn-danger" click.delegate="Save()">Save</button>
                 </div>
               </form>
+              
+
         </div>
         </div>
     </div>

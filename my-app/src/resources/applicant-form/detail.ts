@@ -33,5 +33,9 @@ export class ApplicantDetail {
       });
       console.log('delete');
   }
+  Back(){
+    this.api.GetApplicants();
+    this.router.navigate('home');
+  }
     
 }

@@ -11,6 +11,9 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 // import bootstap css as a global dependency
 import 'bootstrap/dist/css/bootstrap.css';
 
+import 'app.css';
+
+
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
